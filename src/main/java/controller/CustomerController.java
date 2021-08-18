@@ -33,7 +33,7 @@ public class CustomerController {
 
     @PostMapping("/create")
     public ModelAndView saveCustomer(@ModelAttribute("customer") Customer customer){
-        customerService.save(customer);
+        customerService.insertWithStoredProcedure(customer);
         ModelAndView modelAndView = new ModelAndView("/customer/create");
         modelAndView.addObject("customer",new Customer());
         modelAndView.addObject("message","New customer created");
