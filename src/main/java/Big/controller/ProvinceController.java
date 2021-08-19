@@ -4,6 +4,8 @@ import Big.model.Customer;
 import Big.model.Province;
 import Big.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -85,12 +87,12 @@ public class ProvinceController {
     }
 
     @GetMapping("/view-province/{id}")
-    public ModelAndView viewProvince(@PathVariable Long id){
+    public ModelAndView viewProvince(@PathVariable Long id, Pageable pageable){
         Optional<Province> province = provinceService.findById(id);
         if(!province.isPresent()){
             return new ModelAndView("/error.404");
         }
-        Iterable<Customer> customers = customerService.findAllByProvince(province.get());
+        Page<Customer> customers = customerService.findAllByProvince(province.get(), pageable);
         ModelAndView modelAndView = new ModelAndView("/province/view");
         modelAndView.addObject("province",province.get());
         modelAndView.addObject("customers",customers);

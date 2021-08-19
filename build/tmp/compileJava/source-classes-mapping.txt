@@ -8,18 +8,18 @@ Big/model/Customer.java
  Big.model.Customer
 Big/model/Province.java
  Big.model.Province
-Big/config/AppConfig.java
- Big.config.AppConfig
+Big/config/AppInit.java
+ Big.config.AppInit
 Big/repository/IProvinceRepository.java
  Big.repository.IProvinceRepository
 Big/formatter/ProvinceFormatter.java
  Big.formatter.ProvinceFormatter
+Big/config/AppConfig.java
+ Big.config.AppConfig
 Big/repository/ICustomerRepository.java
  Big.repository.ICustomerRepository
 Big/controller/ProvinceController.java
  Big.controller.ProvinceController
-Big/config/AppInit.java
- Big.config.AppInit
 Big/service/CustomerService.java
  Big.service.CustomerService
 Big/controller/CustomerController.java
